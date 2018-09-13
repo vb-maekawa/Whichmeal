@@ -7,12 +7,16 @@ import android.widget.Button;
 import android.widget.Spinner;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
-    int index = 1;
-    int end_index = 9;
+    int index = 0;
+    int end_index = 8;
+    int role_count;
+    int hit_number;
     private Spinner spinner;
     private Timer timer;
+    private Random r;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,12 +25,15 @@ public class MainActivity extends AppCompatActivity {
 
         spinner = (Spinner) findViewById(R.id.spinner2);
         timer = new Timer();
+        r = new Random();
 
         Button timerStartButton = (Button) findViewById(R.id.button5);
 
         timerStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                role_count = 0;
+                hit_number = r.nextInt(9);
                 timer.scheduleAtFixedRate(
                     new TimerTask()
                     {
@@ -38,13 +45,17 @@ public class MainActivity extends AppCompatActivity {
                                     spinner.setSelection(index);
                                     index++;
                                     if( index == end_index ){
+                                        role_count++;
+                                        index = 0;
+                                    }
+                                    if( role_count == 3 && hit_number == index ){
                                         timer.cancel();
                                         timer = new Timer();
                                     }
                                 }
                             });
                         }
-                    }, 50, 500
+                    }, 50, 200
                 );
             }
         });
