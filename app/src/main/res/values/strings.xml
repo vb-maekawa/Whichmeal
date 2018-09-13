@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Which meal</string>
+
+    <string-array name="list">
+        <item>すき家</item>
+        <item>丸亀製麺</item>
+        <item>やよい軒</item>
+        <item>てっぴ</item>
+        <item>蕎麦屋</item>
+        <item>王将</item>
+        <item>セブンイレブン</item>
+        <item>つけ麺</item>
+        <item>ファミリーマート</item>
+    </string-array>
+
+    <string name="button">ルーレット開始！</string>
+
+    <string name="toggleOn">麺なし</string>
+    <string name="toggleOff">麺あり</string>
+
+    </resources>
