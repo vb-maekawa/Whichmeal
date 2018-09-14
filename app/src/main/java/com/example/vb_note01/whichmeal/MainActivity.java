@@ -24,16 +24,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         spinner = (Spinner) findViewById(R.id.spinner2);
-        timer = new Timer();
         r = new Random();
 
         Button timerStartButton = (Button) findViewById(R.id.button5);
 
         timerStartButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
+            public void onClick(final View v) {
+                v.setEnabled(false);
                 role_count = 0;
                 hit_number = r.nextInt(9);
+                timer = new Timer();
                 timer.scheduleAtFixedRate(
                     new TimerTask()
                     {
@@ -50,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
                                     }
                                     if( role_count == 3 && hit_number == index ){
                                         timer.cancel();
-                                        timer = new Timer();
+                                        v.setEnabled(true);
                                     }
                                 }
                             });

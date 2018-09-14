@@ -24,6 +24,12 @@
             android:layout_height="126dp"
             android:entries="@array/list" />
 
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="match_parent"
+            android:layout_height="126dp"
+            android:entries="@array/list3" />
+
         <ToggleButton
             android:id="@+id/togglebutton"
             android:layout_width="match_parent"
